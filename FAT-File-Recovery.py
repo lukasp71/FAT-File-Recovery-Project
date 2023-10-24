@@ -28,12 +28,6 @@ def parse_fat(file_path):
         # Return the list of FAT values
         return fat_values
 
-# Function to save FAT values to a file
-def save_to_file(output_path, fat_values):
-    with open(output_path, 'w') as out_file:
-        for value in fat_values:
-            out_file.write(f"{value}\n")
-
 # Function to identify start and end of contiguous chains in FAT
 def identify_chains(fat_values):
     beginnings = []
@@ -91,9 +85,8 @@ def extract_files_from_clusters(image_path, fat_values, file_start_locations, ou
                         out_file.truncate()
 
 # Main script execution
-image_path = "C:\\Users\\lukep\\OneDrive\\Documents\\Digital_Forensics\\exam-1.image\\exam-1.image\\exam.image"
-output_path = "C:\\Users\\lukep\\OneDrive\\Documents\\Digital_Forensics\\FAT_output.txt"
-output_directory = "C:\\Users\\lukep\\OneDrive\\Documents\\Digital_Forensics\\Recovered_Files"
+image_path = "path to image"
+output_directory = "where you want the files to go"
 
 # Parse FAT values from the image
 fat_values = parse_fat(image_path)
